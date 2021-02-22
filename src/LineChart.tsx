@@ -1,6 +1,4 @@
 import React from 'react';
-import { useD3 } from './hooks/useD3';
-import * as d3 from 'd3';
 import { Line } from '@reactchartjs/react-chart.js';
 import { ChartOptions, ChartData } from 'chart.js'
 

@@ -15,14 +15,11 @@ const row = (d: any) => {
 var xdata: Array<[number]> = [];
 var xlabels: Array<[string]> = [];
 
-interface IUser {
-  historyData: Array<[string]>;
-}
-
 const App: React.FC = () => {
 
   const [historyData, setHistoryData] = useState<Array<[number]>>();
-  const [labels, setLabels] = useState<Array<[string]>>();
+  const [labels, 
+    setLabels] = useState<Array<[string]>>();
   const [lastDate, setLastDate] = useState<Array<[string]>>();
   const [city, setCity] = useState<string>("katowice");
 
