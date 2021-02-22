@@ -8,8 +8,6 @@ import { ChartOptions, ChartData } from 'chart.js'
 
 const LineChart: React.FC<{ labels: Array<[string]>, xdata: Array<[number]> }> = ({ labels, xdata }) => {
 
-    const emptyArray: Array<[number]> = [];
-
     const options: ChartOptions = {
         scales: {
             yAxes: [
@@ -37,8 +35,9 @@ const LineChart: React.FC<{ labels: Array<[string]>, xdata: Array<[number]> }> =
             },
             {
                 label: 'Predictions',
-                data: emptyArray.concat(xdata),
+                data: xdata,
                 fill: false,
+                borderDash: [20, 30],
                 pointBorderWidth: 0.1,
                 backgroundColor: 'rgb(152, 255, 152)',
                 borderColor: 'rgba(152, 255, 152, 0.2)',

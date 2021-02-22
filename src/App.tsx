@@ -50,7 +50,6 @@ const App: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    console.log(city)
     xlabels = [];
     xdata = [];
     getHistoricData(city);
@@ -62,17 +61,23 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
+        <p>
+          Choose your city
+        </p>
+      </header>
+      <div className="App-chart">
+
         <button onClick={() => setCity("bialystok")}>bialystok</button>
         <button onClick={() => setCity("katowice")}>katowice</button>
         <button onClick={() => setCity("warszawa")}>warszawa</button>
         <button onClick={() => setCity("poznan")}>poznan</button>
         <button onClick={() => setCity("krakow")}>krakow</button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
           <LineChart labels={xlabels} xdata={xdata} />
-        </p>
-      </header>
+      </div>
+      <div className="App-empty">
+      </div>
     </div>
+
   );
 }
 
