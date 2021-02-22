@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { csv, DSVParsedArray } from 'd3';
 import LineChart from './LineChart';
-
 
 const row = (d: any) => {
   d.y_pred = +d.y_pred;
@@ -12,18 +10,32 @@ const row = (d: any) => {
   return d;
 };
 
-var hehe: DSVParsedArray<any>;
 
-const App = () => {
-  const [historyData , setHistoryData] = useState([]);
+var xdata: Array<[number]> = [];
+var xlabels: Array<[string]> = [];
+
+interface IUser {
+  historyData: Array<[string]>;
+}
+
+const App: React.FC = () => {
+  
+  const [historyData, setHistoryData] = useState<Array<[number]>>();
+  const [labels, setLabels] = useState<Array<[string]>>();
 
   useEffect(() => {
     csv('https://raw.githubusercontent.com/PrzemyslawSarnacki/AirQualityPrediction/master/data/predictions/history-bialystok.csv', row).then(
-    (data) => {
-      hehe = data;
-      // data.append(row)
-      console.log(hehe)
-    }
+      (data) => {
+        data.forEach((object) => xlabels.push(object[""]))
+        data.forEach((object) => xdata.push(object["y_pred"]))
+        // data.append(row)
+        console.log(labels)
+        
+        setLabels(xlabels);
+        setHistoryData(xdata);
+        console.log(xdata)
+
+      }
     )
   }, []);
 
@@ -32,9 +44,8 @@ const App = () => {
       <header className="App-header">
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
-
+          <LineChart labels={xlabels} xdata={xdata} />
         </p>
-        <LineChart data={hehe}/>
       </header>
     </div>
   );
