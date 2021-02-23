@@ -18,7 +18,7 @@ var xlabels: Array<[string]> = [];
 const App: React.FC = () => {
 
   const [historyData, setHistoryData] = useState<Array<[number]>>();
-  const [labels, 
+  const [labels,
     setLabels] = useState<Array<[string]>>();
   const [lastDate, setLastDate] = useState<Array<[string]>>();
   const [city, setCity] = useState<string>("katowice");
@@ -27,7 +27,7 @@ const App: React.FC = () => {
     (data) => {
 
       data.forEach((object) => xlabels.push(object[""]));
-      data.forEach((object) => xdata.push(object["y_pred"])); 
+      data.forEach((object) => xdata.push(object["y_pred"]));
       setLastDate(data[0][""]);
       setLabels(xlabels);
       setHistoryData(xdata);
@@ -42,17 +42,11 @@ const App: React.FC = () => {
   );
 
   useEffect(() => {
-    getHistoricData("katowice");
-    getPredictionData("katowice");
-  }, []);
-
-  useEffect(() => {
     xlabels = [];
     xdata = [];
     getHistoricData(city);
     getPredictionData(city);
   }, [city]);
-
 
 
   return (
@@ -63,13 +57,16 @@ const App: React.FC = () => {
         </p>
       </header>
       <div className="App-chart">
+        <h6>Choose a city:</h6>
+        <select onChange={(option) => setCity(option.target.value)}>
+          <option>katowice</option>
+          <option>bialystok</option>
+          <option>warszawa</option>
+          <option>poznan</option>
+          <option>krakow</option>
+        </select>
 
-        <button onClick={() => setCity("bialystok")}>bialystok</button>
-        <button onClick={() => setCity("katowice")}>katowice</button>
-        <button onClick={() => setCity("warszawa")}>warszawa</button>
-        <button onClick={() => setCity("poznan")}>poznan</button>
-        <button onClick={() => setCity("krakow")}>krakow</button>
-          <LineChart labels={xlabels} xdata={xdata} />
+        <LineChart labels={xlabels} xdata={xdata} />
       </div>
       <div className="App-empty">
       </div>
