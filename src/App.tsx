@@ -41,11 +41,43 @@ const App: React.FC = () => {
     }
   );
 
+  const fetchCity = (city: string) => {
+    const url = 'https://api.openaq.org/v1/measurements?city=Warszawa';
+const options = {
+  
+
+  method: 'get',
+  
+};
+fetch(url)
+  .then(
+    function(response) {
+      if (response.status !== 200) {
+        console.log('Looks like there was a problem. Status Code: ' +
+          response.status);
+        return;
+      }
+
+      // Examine the text in the response
+      response.json().then(function(data) {
+        console.log(data.results[0].value);
+      });
+    }
+  )
+  .catch(function(err) {
+    console.log('Fetch Error :-S', err);
+  });
+
+
+  } 
+
+
   useEffect(() => {
     xlabels = [];
     xdata = [];
     getHistoricData(city);
     getPredictionData(city);
+    fetchCity("");
   }, [city]);
 
 
