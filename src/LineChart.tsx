@@ -27,7 +27,7 @@ const LineChart: React.FC<{ labels: Array<[string]>, xdata: Array<[number]> }> =
     const data: ChartData = {
         labels: labels,
         datasets: [
-            {
+            { 
                 label: 'History',
                 data: xdata.slice(0,50),
                 fill: false,
@@ -40,7 +40,6 @@ const LineChart: React.FC<{ labels: Array<[string]>, xdata: Array<[number]> }> =
                 label: 'Predictions',
                 data: xdata,
                 fill: false,
-                // borderDash: [20, 30],
                 pointBorderWidth: 0.1,
                 backgroundColor: 'rgb(152, 255, 152)',
                 borderColor: 'rgba(152, 255, 152, 0.2)',
