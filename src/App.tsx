@@ -65,46 +65,60 @@ const App: React.FC = () => {
     return S(city).latinise().s.toLowerCase()
   }
 
+  const categorize = () => {
+    if (aqi < 50) {
+      return <p>happyFace</p>
+    }
+    else if (aqi > 50 && aqi < 100) {
+      return <p>sadFace</p>
+    }
+    else if (aqi > 100 && aqi < 200){
+      return <p>verysadFace</p>
+    }
+    else if (aqi > 200){
+      return <p>tragicFace</p>
+    }
 
-  useEffect(() => {
-    xlabels = [];
-    xdata = [];
-    getHistoricData(stripAccents(city));
-    getPredictionData(stripAccents(city));
-    fetchCity(city);
-  }, [city]);
+
+}
 
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Choose your city
+useEffect(() => {
+  xlabels = [];
+  xdata = [];
+  getHistoricData(stripAccents(city));
+  getPredictionData(stripAccents(city));
+  fetchCity(city);
+}, [city]);
+
+
+return (
+  <div className="App">
+    <header className="App-header">
+      <p>
+        Choose your city
         </p>
-      </header>
-      <div className="App-chart">
-        <h6>Choose a city:</h6>
-        <select onChange={(option) => setCity(option.target.value)}>
-          <option>Katowice</option>
-          <option>Białystok</option>
-          <option>Warszawa</option>
-          <option>Poznań</option>
-          <option>Kraków</option>
-        </select>
+    </header>
+    <div className="App-chart">
+      <h6>Choose a city:</h6>
+      <select onChange={(option) => setCity(option.target.value)}>
+        <option>Katowice</option>
+        <option>Białystok</option>
+        <option>Warszawa</option>
+        <option>Poznań</option>
+        <option>Kraków</option>
+      </select>
 
-        <LineChart labels={xlabels} xdata={xdata} />
-        <p>Data from within 1 hour:</p>
-        <p>{aqi}</p>
-        {aqi > 60 ?
-          <p>sadFace</p> :
-          <p>happyFace</p>
-        }
-      </div>
-      <div className="App-empty">
-      </div>
+      <LineChart labels={xlabels} xdata={xdata} />
+      <p>Data from within 1 hour:</p>
+      <p>{aqi}</p>
+      {categorize()}
     </div>
+    <div className="App-empty">
+    </div>
+  </div>
 
-  );
+);
 }
 
 export default App;
