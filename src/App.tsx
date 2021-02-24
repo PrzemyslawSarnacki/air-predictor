@@ -19,10 +19,6 @@ var xlabels: Array<[string]> = [];
 
 const App: React.FC = () => {
 
-  const [historyData, setHistoryData] = useState<Array<[number]>>();
-  const [labels,
-    setLabels] = useState<Array<[string]>>();
-  const [lastDate, setLastDate] = useState<Array<[string]>>();
   const [city, setCity] = useState<string>("Katowice");
   const [aqi, setAqi] = useState<number>(0);
 
@@ -31,9 +27,6 @@ const App: React.FC = () => {
 
       data.forEach((object) => xlabels.push(object[""]));
       data.forEach((object) => xdata.push(object["y_pred"]));
-      setLastDate(data[0][""]);
-      setLabels(xlabels);
-      setHistoryData(xdata);
     }
   );
 
@@ -100,11 +93,12 @@ const App: React.FC = () => {
         </select>
 
         <LineChart labels={xlabels} xdata={xdata} />
+        <p>Data from within 1 hour:</p>
         <p>{aqi}</p>
-        {aqi > 60 ? 
-        <p>sadFace</p>:
-        <p>happyFace</p>
-      }
+        {aqi > 60 ?
+          <p>sadFace</p> :
+          <p>happyFace</p>
+        }
       </div>
       <div className="App-empty">
       </div>
