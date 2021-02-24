@@ -72,29 +72,31 @@ const App: React.FC = () => {
     else if (aqi > 50 && aqi < 100) {
       return <p>sadFace</p>
     }
-    else if (aqi > 100 && aqi < 200) {
+    else if (aqi > 100 && aqi < 200){
       return <p>verysadFace</p>
     }
-    else if (aqi > 200) {
+    else if (aqi > 200){
       return <p>tragicFace</p>
     }
-  }
 
 
-  useEffect(() => {
-    xlabels = [];
-    xdata = [];
-    getHistoricData(stripAccents(city));
-    getPredictionData(stripAccents(city));
-    fetchCity(city);
-  }, [city]);
+}
 
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Choose your city
+useEffect(() => {
+  xlabels = [];
+  xdata = [];
+  getHistoricData(stripAccents(city));
+  getPredictionData(stripAccents(city));
+  fetchCity(city);
+}, [city]);
+
+
+return (
+  <div className="App">
+    <header className="App-header">
+      <p>
+        Choose your city
         </p>
       </header>
       <div className="App-chart">
@@ -116,7 +118,7 @@ const App: React.FC = () => {
       </div>
     </div>
 
-  );
+);
 }
 
 export default App;
