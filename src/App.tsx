@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { csv, DSVParsedArray } from 'd3';
+import { csv } from 'd3';
 import LineChart from './LineChart';
 
 var S = require('string');
@@ -25,15 +25,15 @@ const App: React.FC = () => {
   const getPredictionData = (city: string) => csv(`https://raw.githubusercontent.com/PrzemyslawSarnacki/AirQualityPrediction/master/data/predictions/history-${city}.csv`, row).then(
     (data) => {
 
-      data.forEach((object) => xlabels.push(object[""]));
-      data.forEach((object) => xdata.push(object["y_pred"]));
+      data.forEach((row) => xlabels.push(row[""]));
+      data.forEach((row) => xdata.push(row["y_pred"]));
     }
   );
 
   const getHistoricData = (city: string) => csv(`https://raw.githubusercontent.com/PrzemyslawSarnacki/AirQualityPrediction/master/data/predictions/prediction-${city}.csv`, row).then(
     (data) => {
-      data.forEach((object) => xlabels.push(object[""]));
-      data.forEach((object) => xdata.push(object["aqi"]));
+      data.forEach((row) => xlabels.push(row[""]));
+      data.forEach((row) => xdata.push(row["aqi"]));
     }
   );
 
