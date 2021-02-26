@@ -67,16 +67,16 @@ const App: React.FC = () => {
 
   const categorize = () => {
     if (aqi < 50) {
-      return <p>happyFace</p>
+      return <p>🥳</p>
     }
     else if (aqi > 50 && aqi < 100) {
-      return <p>sadFace</p>
+      return <p>😒</p>
     }
     else if (aqi > 100 && aqi < 200){
-      return <p>verysadFace</p>
+      return <p>😥</p>
     }
     else if (aqi > 200){
-      return <p>tragicFace</p>
+      return <p>😰</p>
     }
 
 
