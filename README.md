@@ -1,3 +1,7 @@
+# Air Predictior
+
+Prototype for an app that would be meant for prediction of AQI in certain cities. Now it basically loads already predicted data (which was achieved using Tensorflow Probability model) and visualizes it. On top of that we have (almost) real time info about current state of air quality in desired city.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
