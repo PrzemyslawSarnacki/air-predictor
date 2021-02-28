@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import './css/tailwind.css';
 import { csv } from 'd3';
 import LineChart from './LineChart';
 
@@ -83,7 +84,7 @@ const App: React.FC = () => {
 }
 
 
-useEffect(() => {
+useEffect(() => {  
   xlabels = [];
   xdata = [];
   getHistoricData(stripAccents(city));
