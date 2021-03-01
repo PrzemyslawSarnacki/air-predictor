@@ -1,9 +1,36 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 
 
-const CategorizeForm: React.FC<{aqi: number}> = ({aqi}) => {
-  
+const CategorizeForm: React.FC<{city: string}> = ({city}) => {
+
+  const [aqi, setAqi] = useState<number>(0);
+
+  useEffect(() => {
+    fetchCity(city);
+  }, [city]);
+
+
+  const fetchCity = (city: string) => {
+    const url = `https://api.openaq.org/v1/measurements?city=${city}&parameter=pm25`;
+    fetch(url)
+      .then(
+        function (response) {
+          if (response.status !== 200) {
+            console.log('Looks like there was a problem. Status Code: ' +
+              response.status);
+            return;
+          }
+          response.json().then(function (data) {
+            setAqi(data.results[0].value);
+          });
+        }
+      )
+      .catch(function (err) {
+        console.log('Fetch Error :-S', err);
+      });
+  }
+
   const categorize = () => {
     if (aqi < 50) {
       return <p className="my-4 text-3xl md:text-5xl text-white opacity-75 font-bold leading-tight text-center md:text-left">🥳</p>
