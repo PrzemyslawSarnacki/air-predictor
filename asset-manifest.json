@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.ba36e231.chunk.css",
-    "main.js": "/static/js/main.af711ad2.chunk.js",
-    "main.js.map": "/static/js/main.af711ad2.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.62a08a0d.js",
-    "runtime-main.js.map": "/static/js/runtime-main.62a08a0d.js.map",
-    "static/js/2.694f3af0.chunk.js": "/static/js/2.694f3af0.chunk.js",
-    "static/js/2.694f3af0.chunk.js.map": "/static/js/2.694f3af0.chunk.js.map",
-    "static/js/3.f1626850.chunk.js": "/static/js/3.f1626850.chunk.js",
-    "static/js/3.f1626850.chunk.js.map": "/static/js/3.f1626850.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/main.ba36e231.chunk.css.map": "/static/css/main.ba36e231.chunk.css.map",
-    "static/js/2.694f3af0.chunk.js.LICENSE.txt": "/static/js/2.694f3af0.chunk.js.LICENSE.txt"
+    "main.css": "/air-predictor/static/css/main.ba36e231.chunk.css",
+    "main.js": "/air-predictor/static/js/main.af711ad2.chunk.js",
+    "main.js.map": "/air-predictor/static/js/main.af711ad2.chunk.js.map",
+    "runtime-main.js": "/air-predictor/static/js/runtime-main.7bae9bd1.js",
+    "runtime-main.js.map": "/air-predictor/static/js/runtime-main.7bae9bd1.js.map",
+    "static/js/2.694f3af0.chunk.js": "/air-predictor/static/js/2.694f3af0.chunk.js",
+    "static/js/2.694f3af0.chunk.js.map": "/air-predictor/static/js/2.694f3af0.chunk.js.map",
+    "static/js/3.f1626850.chunk.js": "/air-predictor/static/js/3.f1626850.chunk.js",
+    "static/js/3.f1626850.chunk.js.map": "/air-predictor/static/js/3.f1626850.chunk.js.map",
+    "index.html": "/air-predictor/index.html",
+    "static/css/main.ba36e231.chunk.css.map": "/air-predictor/static/css/main.ba36e231.chunk.css.map",
+    "static/js/2.694f3af0.chunk.js.LICENSE.txt": "/air-predictor/static/js/2.694f3af0.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.62a08a0d.js",
+    "static/js/runtime-main.7bae9bd1.js",
     "static/js/2.694f3af0.chunk.js",
     "static/css/main.ba36e231.chunk.css",
     "static/js/main.af711ad2.chunk.js"
