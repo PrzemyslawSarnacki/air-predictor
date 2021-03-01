@@ -19,7 +19,7 @@ const App: React.FC = () => {
   }
 
   return (
-    <body className="leading-normal tracking-normal text-indigo-400 bg-cover bg-fixed" style={{ backgroundImage: `url(/header.png)` }}>
+    <body className="leading-normal tracking-normal text-indigo-400 bg-cover bg-fixed" style={{ backgroundImage: `url(header.png)` }}>
       <div className="h-full">
         <Navbar />
         <div className="container pt-24 md:pt-36 mx-auto flex flex-wrap flex-col md:flex-row items-center">
