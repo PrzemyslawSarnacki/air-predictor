@@ -11,7 +11,7 @@ const Header: React.FC = () => {
              to protect yourself
           </h1>
             <p className="leading-normal text-base md:text-2xl mb-8 text-center md:text-left">
-                Check predicted air quality index for your city so you can keep your healt on point.
+                Check predicted air quality index for your city so you can keep your health on point.
           </p>
         </div>
     );
