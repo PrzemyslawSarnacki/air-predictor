@@ -1,6 +1,5 @@
 import React, { useState, useEffect, ReactNode } from 'react';
 import './css/tailwind.css';
-import { csv } from 'd3';
 import LineChart from './components/LineChart';
 import Navbar from './components/Navbar';
 import Header from './components/Header';
@@ -9,54 +8,15 @@ import CategorizeForm from './components/CategorizeForm';
 import ChoiceForm from './components/ChoiceForm';
 
 var S = require('string');
-var xdata: Array<[number]> = [];
-var xlabels: Array<[string]> = [];
 
 
 const App: React.FC = () => {
   
   const [city, setCity] = useState<string>("Katowice");
   
-  
-  const row = (d: any) => {
-    d.y_pred = +d.y_pred;
-    d.y_pred_std = +d.y_pred_std;
-    d.aqi = +d.aqi;
-    d.errors = +d.errors;
-    return d;
-  };
-  
-  
-
-  const getPredictionData = (city: string) => csv(`https://raw.githubusercontent.com/PrzemyslawSarnacki/AirQualityPrediction/master/data/predictions/history-${city}.csv`, row).then(
-    (data) => {
-
-      data.forEach((row) => xlabels.push(row[""]));
-      data.forEach((row) => xdata.push(row["y_pred"]));
-    }
-  );
-
-  const getHistoricData = (city: string) => csv(`https://raw.githubusercontent.com/PrzemyslawSarnacki/AirQualityPrediction/master/data/predictions/prediction-${city}.csv`, row).then(
-    (data) => {
-      data.forEach((row) => xlabels.push(row[""]));
-      data.forEach((row) => xdata.push(row["aqi"]));
-    }
-  );
-
-
-
   const stripAccents = (city: string) => {
     return S(city).latinise().s.toLowerCase()
   }
-
-
-  useEffect(() => {
-    xlabels = [];
-    xdata = [];
-    getHistoricData(stripAccents(city));
-    getPredictionData(stripAccents(city));
-  }, [city]);
-
 
   return (
     <body className="leading-normal tracking-normal text-indigo-400 bg-cover bg-fixed" style={{ backgroundImage: `url(/header.png)` }}>
@@ -74,7 +34,7 @@ const App: React.FC = () => {
               <option>Poznań</option>
               <option>Kraków</option>
             </select>
-            <LineChart labels={xlabels} xdata={xdata} />
+            <LineChart city={stripAccents(city)} />
           </ChoiceForm>
           <CategorizeForm city={city} />
         </div>
