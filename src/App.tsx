@@ -9,22 +9,24 @@ import CategorizeForm from './components/CategorizeForm';
 import ChoiceForm from './components/ChoiceForm';
 
 var S = require('string');
-
-const row = (d: any) => {
-  d.y_pred = +d.y_pred;
-  d.y_pred_std = +d.y_pred_std;
-  d.aqi = +d.aqi;
-  d.errors = +d.errors;
-  return d;
-};
-
-
 var xdata: Array<[number]> = [];
 var xlabels: Array<[string]> = [];
 
-const App: React.FC = () => {
 
+const App: React.FC = () => {
+  
   const [city, setCity] = useState<string>("Katowice");
+  
+  
+  const row = (d: any) => {
+    d.y_pred = +d.y_pred;
+    d.y_pred_std = +d.y_pred_std;
+    d.aqi = +d.aqi;
+    d.errors = +d.errors;
+    return d;
+  };
+  
+  
 
   const getPredictionData = (city: string) => csv(`https://raw.githubusercontent.com/PrzemyslawSarnacki/AirQualityPrediction/master/data/predictions/history-${city}.csv`, row).then(
     (data) => {
@@ -57,7 +59,7 @@ const App: React.FC = () => {
 
 
   return (
-    <body className="leading-normal tracking-normal text-indigo-400 m-6 bg-cover bg-fixed" style={{ backgroundImage: `url(/header.png)` }}>
+    <body className="leading-normal tracking-normal text-indigo-400 bg-cover bg-fixed" style={{ backgroundImage: `url(/header.png)` }}>
       <div className="h-full">
         <Navbar />
         <div className="container pt-24 md:pt-36 mx-auto flex flex-wrap flex-col md:flex-row items-center">
@@ -77,7 +79,7 @@ const App: React.FC = () => {
           <CategorizeForm city={city} />
         </div>
         <Footer />
-      </div>
+        </div>
     </body>
   );
 }
