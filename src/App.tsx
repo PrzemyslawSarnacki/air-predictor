@@ -93,7 +93,7 @@ const App: React.FC = () => {
 
 
   return (
-    <body className="leading-normal tracking-normal text-indigo-400 m-6 bg-cover bg-fixed" style={{ backgroundImage: `url(https://raw.githubusercontent.com/tailwindtoolbox/Rainblur-Landing-Page/main/header.png)` }}>
+    <body className="leading-normal tracking-normal text-indigo-400 m-6 bg-cover bg-fixed" style={{ backgroundImage: `url(/header.png)` }}>
       <div className="h-full">
         <div className="w-full container mx-auto">
           <div className="w-full flex items-center justify-between">
@@ -183,12 +183,12 @@ const App: React.FC = () => {
             {categorize()}
           </form>
         </div>
-      </div>
 
       <div className="w-full pt-16 pb-6 text-sm text-center md:text-left fade-in">
         <a className="text-gray-500 no-underline hover:no-underline" href="#">&copy; App 2020</a>
           - Template by
           <a className="text-gray-500 no-underline hover:no-underline" href="https://www.tailwindtoolbox.com">TailwindToolbox.com</a>
+      </div>
       </div>
     </body>
   );
