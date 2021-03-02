@@ -1,6 +1,11 @@
-# Air Predictior
+# Air Predictor
 
-Prototype for an app that would be meant for prediction of AQI in certain cities. Now it basically loads already predicted data (which was achieved using Tensorflow Probability model) and visualizes it. On top of that we have (almost) real time info about current state of air quality in desired city.
+You can check Live Demo <a href="https://przemyslawsarnacki.github.io/air-predictor/">here</a> 
+
+Prototype for an app that would be meant for prediction of AQI in certain cities. 
+Now it basically loads already predicted data (which was achieved using Tensorflow Probability model) and visualizes it. On top of that we have (almost) real time info about current state of air quality in desired city.
+
+![](preview/preview.gif)
 
 ## Run Project
 
